@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>منيو المطعم</title>
+  <title>الكافيه - منيو</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <style>
     /* ===== RESET & BASE ===== */
@@ -15,21 +15,35 @@
 
     body {
       font-family: 'Cairo', sans-serif;
-      background: #0f0a05;
+      background: #1a120e;
       color: #f5ede0;
       min-height: 100vh;
       padding: 2rem 1rem;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER WITH LOGO ===== */
     .header {
       text-align: center;
       margin-bottom: 3rem;
+      padding: 2rem 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 20px;
+      border: 1px solid rgba(200, 121, 42, 0.1);
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #c8792a;
+      margin-bottom: 1rem;
+      background: #2a1a0a;
     }
 
     .header h1 {
@@ -39,10 +53,17 @@
       letter-spacing: 0.05em;
     }
 
-    .header p {
+    .header .subtitle {
       color: #a08060;
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-top: 0.3rem;
+    }
+
+    .header .tagline {
+      color: #7a6050;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+      letter-spacing: 0.1em;
     }
 
     .divider {
@@ -50,7 +71,7 @@
       align-items: center;
       gap: 1rem;
       max-width: 400px;
-      margin: 1.5rem auto 2rem;
+      margin: 1.2rem auto 0;
     }
 
     .divider-line {
@@ -70,7 +91,7 @@
 
     /* ===== CATEGORY ===== */
     .category {
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
 
     .category-title {
@@ -80,7 +101,7 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: #c8792a;
-      border-bottom: 1px solid rgba(200, 121, 42, 0.25);
+      border-bottom: 1px solid rgba(200, 121, 42, 0.2);
       padding-bottom: 0.6rem;
       margin-bottom: 1.2rem;
     }
@@ -92,26 +113,40 @@
     /* ===== GRID ===== */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
     }
 
-    /* ===== CARD ===== */
+    /* ===== CARD WITH IMAGE ===== */
     .card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(200, 121, 42, 0.12);
-      border-radius: 14px;
-      padding: 1rem;
-      transition: border-color 0.2s, transform 0.2s;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(200, 121, 42, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(4px);
     }
 
     .card:hover {
       border-color: rgba(200, 121, 42, 0.5);
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: #2a1a0a;
+    }
+
+    .card-body {
+      padding: 1rem 1rem 1.2rem;
     }
 
     .card-name {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #f5ede0;
       margin-bottom: 0.4rem;
@@ -142,10 +177,26 @@
       margin-top: 0.3rem;
     }
 
+    /* ===== Sub-category label ===== */
+    .sub-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #d4a060;
+      margin-bottom: 0.8rem;
+      padding-right: 0.3rem;
+      border-right: 3px solid #c8792a;
+      padding-right: 0.7rem;
+    }
+
+    .sub-section {
+      margin-bottom: 1.8rem;
+    }
+
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       .grid {
         grid-template-columns: 1fr 1fr;
+        gap: 1rem;
       }
 
       .header h1 {
@@ -153,11 +204,20 @@
       }
 
       .category-title {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+      }
+
+      .card-img {
+        height: 140px;
+      }
+
+      .logo {
+        width: 90px;
+        height: 90px;
       }
     }
 
-    @media (max-width: 380px) {
+    @media (max-width: 400px) {
       .grid {
         grid-template-columns: 1fr;
       }
@@ -168,10 +228,18 @@
 
   <div class="container">
 
-    <!-- ===== HEADER ===== -->
+    <!-- ===== HEADER WITH LOGO ===== -->
     <div class="header">
-      <h1>🍽️ منيو المطعم</h1>
-      <p>أشهى الأطباق والمشروبات</p>
+      <!-- LOGO – استبدل الرابط بشعار الكافيه الحقيقي -->
+      <img
+        src="https://i.imgur.com/y8z8I7m.png"
+        alt="شعار الكافيه"
+        class="logo"
+        onerror="this.style.display='none'"
+      />
+      <h1>☕ الكافيه</h1>
+      <p class="subtitle">أشهى المشروبات والحلويات</p>
+      <p class="tagline">— أجواء هادئة · طعم لا يُنسى —</p>
       <div class="divider">
         <div class="divider-line"></div>
         <div class="divider-icon">✦</div>
@@ -179,199 +247,413 @@
       </div>
     </div>
 
-    <!-- ===== 1. بيتزا ===== -->
-    <div class="category">
-      <div class="category-title"><span class="icon">🍕</span> بيتزا</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-name">بيبروني</div>
-          <div class="card-price"><span>S <b>30</b></span><span>M <b>50</b></span></div>
-        </div>
-        <div class="card">
-          <div class="card-name">تركي مدخن</div>
-          <div class="card-price"><span>S <b>35</b></span><span>M <b>55</b></span></div>
-        </div>
-        <div class="card">
-          <div class="card-name">ثلاثي الجبن</div>
-          <div class="card-price"><span>S <b>35</b></span><span>M <b>55</b></span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== 2. حلويات وكيك ===== -->
-    <div class="category">
-      <div class="category-title"><span class="icon">🧁</span> حلويات وكيك</div>
-      <div class="grid">
-        <div class="card"><div class="card-name">مافن كيت كات</div><div class="card-price"><span><b>80</b></span></div></div>
-        <div class="card"><div class="card-name">تراميسو</div><div class="card-price"><span><b>80</b></span></div></div>
-        <div class="card"><div class="card-name">هوني كيك</div><div class="card-price"><span><b>80</b></span></div></div>
-        <div class="card"><div class="card-name">أنجليش كيك</div><div class="card-price"><span><b>45</b></span></div></div>
-        <div class="card"><div class="card-name">كيك بندق</div><div class="card-price"><span><b>70</b></span></div></div>
-        <div class="card"><div class="card-name">ليزي كيك</div><div class="card-price"><span><b>80</b></span></div></div>
-      </div>
-    </div>
-
-    <!-- ===== 3. مخبوزات ===== -->
-    <div class="category">
-      <div class="category-title"><span class="icon">🥐</span> مخبوزات</div>
-      <div class="grid">
-        <div class="card"><div class="card-name">كرواسون جبنة</div><div class="card-price"><span>L <b>50</b></span></div></div>
-        <div class="card"><div class="card-name">كرواسون سادة</div><div class="card-price"><span><b>45</b></span></div></div>
-        <div class="card"><div class="card-name">باتيه جبنة بيضاء</div><div class="card-price"><span>L <b>37</b></span></div></div>
-        <div class="card"><div class="card-name">باتيه زيتون وزعتر</div><div class="card-price"><span>L <b>40</b></span></div></div>
-      </div>
-    </div>
-
-    <!-- ===== 4. تشيز كيك وكيك ===== -->
-    <div class="category">
-      <div class="category-title"><span class="icon">🍰</span> تشيز كيك وكيك</div>
-      <div class="grid">
-        <div class="card"><div class="card-name">تشيز كيك سادة</div><div class="card-price"><span><b>70</b></span></div></div>
-        <div class="card"><div class="card-name">تشيز كيك بلو بيري</div><div class="card-price"><span><b>90</b></span></div></div>
-        <div class="card"><div class="card-name">تشيز كيك أوتس</div><div class="card-price"><span><b>90</b></span></div></div>
-        <div class="card"><div class="card-name">ريد فيلفيت كيك</div><div class="card-price"><span><b>85</b></span></div></div>
-        <div class="card"><div class="card-name">كاروت كيك</div><div class="card-price"><span><b>90</b></span></div></div>
-        <div class="card"><div class="card-name">مولتن كيك</div><div class="card-price"><span><b>130</b></span></div></div>
-        <div class="card"><div class="card-name">أوريو كيك</div><div class="card-price"><span><b>85</b></span></div></div>
-        <div class="card"><div class="card-name">تشوكليت فادج</div><div class="card-price"><span><b>90</b></span></div></div>
-        <div class="card"><div class="card-name">براونيز تشوكليت</div><div class="card-price"><span><b>80</b></span></div></div>
-        <div class="card"><div class="card-name">براونيز إكسترا</div><div class="card-price"><span><b>115</b></span></div></div>
-        <div class="card"><div class="card-name">مافن تشوكليت ميني</div><div class="card-price"><span><b>12</b></span></div></div>
-        <div class="card"><div class="card-name">مافن فانيليا ميني</div><div class="card-price"><span><b>12</b></span></div></div>
-        <div class="card"><div class="card-name">كوكيز فانيليا</div><div class="card-price"><span><b>55</b></span></div></div>
-        <div class="card"><div class="card-name">كوكيز شوفان</div><div class="card-price"><span><b>55</b></span></div></div>
-        <div class="card"><div class="card-name">كوكيز تشوكليت</div><div class="card-price"><span><b>55</b></span></div></div>
-        <div class="card"><div class="card-name">سينامون رول ميني</div><div class="card-price"><span><b>12</b></span></div></div>
-        <div class="card"><div class="card-name">سينامون رول كبيرة</div><div class="card-price"><span><b>55</b></span></div></div>
-        <div class="card"><div class="card-name">مافن بندق</div><div class="card-price"><span><b>65</b></span></div></div>
-        <div class="card"><div class="card-name">تشيز بندق</div><div class="card-price"><span><b>70</b></span></div></div>
-        <div class="card"><div class="card-name">براونيز كوكيز</div><div class="card-price"><span><b>60</b></span></div></div>
-      </div>
-    </div>
-
-    <!-- ===== 5. مشروبات ساخنة ===== -->
+    <!-- ============================================================ -->
+    <!-- 1. مشروبات ساخنة – بدون قهوة -->
+    <!-- ============================================================ -->
     <div class="category">
       <div class="category-title"><span class="icon">☕</span> مشروبات ساخنة</div>
 
-      <div style="margin-bottom:1.5rem;">
-        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">بدون قهوة</div>
+      <div class="sub-section">
+        <div class="sub-label">بدون قهوة</div>
         <div class="grid">
-          <div class="card"><div class="card-name">بيبي شوكولاتة</div><div class="card-price"><span><b>65</b></span></div></div>
-          <div class="card"><div class="card-name">إيطاليان شوكولاتة</div><div class="card-price"><span><b>65</b></span></div></div>
-          <div class="card"><div class="card-name">هوت سيدر</div><div class="card-price"><span><b>45</b></span></div></div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=400&q=80" alt="بيبي شوكولاتة" />
+            <div class="card-body">
+              <div class="card-name">بيبي شوكولاتة</div>
+              <div class="card-price"><span><b>65</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&q=80" alt="إيطاليان شوكولاتة" />
+            <div class="card-body">
+              <div class="card-name">إيطاليان شوكولاتة</div>
+              <div class="card-price"><span><b>65</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1551030173-122a5bb3a8f0?w=400&q=80" alt="هوت سيدر" />
+            <div class="card-body">
+              <div class="card-name">هوت سيدر</div>
+              <div class="card-price"><span><b>45</b></span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div style="margin-bottom:1.5rem;">
-        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">فرنساوي</div>
+      <!-- فرنساوي -->
+      <div class="sub-section">
+        <div class="sub-label">فرنساوي</div>
         <div class="grid">
-          <div class="card"><div class="card-name">فرنساوي</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">فرنساوي (بندق)</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">فرنساوي (لوز)</div><div class="card-price"><span><b>45</b></span></div></div>
-          <div class="card"><div class="card-name">فرنساوي شوكولاتة</div><div class="card-price"><span><b>45</b></span></div></div>
-          <div class="card"><div class="card-name">فرنساوي كراميل</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">فرنساوي ميكس بندق</div><div class="card-price"><span><b>45</b></span></div></div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="فرنساوي" />
+            <div class="card-body">
+              <div class="card-name">فرنساوي</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&q=80" alt="فرنساوي بندق" />
+            <div class="card-body">
+              <div class="card-name">فرنساوي (بندق)</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="فرنساوي لوز" />
+            <div class="card-body">
+              <div class="card-name">فرنساوي (لوز)</div>
+              <div class="card-price"><span><b>45</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1600271886742-f0499d5e2c42?w=400&q=80" alt="فرنساوي شوكولاتة" />
+            <div class="card-body">
+              <div class="card-name">فرنساوي شوكولاتة</div>
+              <div class="card-price"><span><b>45</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="فرنساوي كراميل" />
+            <div class="card-body">
+              <div class="card-name">فرنساوي كراميل</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="فرنساوي ميكس بندق" />
+            <div class="card-body">
+              <div class="card-name">فرنساوي ميكس بندق</div>
+              <div class="card-price"><span><b>45</b></span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div style="margin-bottom:1.5rem;">
-        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">شاي وقهوة</div>
+      <!-- شاي وقهوة -->
+      <div class="sub-section">
+        <div class="sub-label">شاي وقهوة</div>
         <div class="grid">
-          <div class="card"><div class="card-name">شاي أسود</div><div class="card-price"><span><b>20</b></span></div></div>
-          <div class="card"><div class="card-name">شاي أخضر</div><div class="card-price"><span><b>20</b></span></div></div>
-          <div class="card"><div class="card-name">شاي بالحليب</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">شاي بنكهات</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">تركي S</div><div class="card-price"><span><b>25</b></span></div></div>
-          <div class="card"><div class="card-name">تركي D</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">تركي سبشيال S</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">تركي سبشيال D</div><div class="card-price"><span><b>35</b></span></div></div>
-          <div class="card"><div class="card-name">قهوة عربية</div><div class="card-price"><span><b>20</b></span></div></div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=400&q=80" alt="شاي أسود" />
+            <div class="card-body">
+              <div class="card-name">شاي أسود</div>
+              <div class="card-price"><span><b>20</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=400&q=80" alt="شاي أخضر" />
+            <div class="card-body">
+              <div class="card-name">شاي أخضر</div>
+              <div class="card-price"><span><b>20</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1564890369478-d89ca92d4e5d?w=400&q=80" alt="شاي بالحليب" />
+            <div class="card-body">
+              <div class="card-name">شاي بالحليب</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1564890369478-d89ca92d4e5d?w=400&q=80" alt="شاي بنكهات" />
+            <div class="card-body">
+              <div class="card-name">شاي بنكهات</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="تركي S" />
+            <div class="card-body">
+              <div class="card-name">تركي S</div>
+              <div class="card-price"><span><b>25</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="تركي D" />
+            <div class="card-body">
+              <div class="card-name">تركي D</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="تركي سبشيال S" />
+            <div class="card-body">
+              <div class="card-name">تركي سبشيال S</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="تركي سبشيال D" />
+            <div class="card-body">
+              <div class="card-name">تركي سبشيال D</div>
+              <div class="card-price"><span><b>35</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80" alt="قهوة عربية" />
+            <div class="card-body">
+              <div class="card-name">قهوة عربية</div>
+              <div class="card-price"><span><b>20</b></span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div>
-        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">إسبريسو ومشتقاته</div>
+      <!-- إسبريسو ومشتقاته -->
+      <div class="sub-section">
+        <div class="sub-label">إسبريسو ومشتقاته</div>
         <div class="grid">
-          <div class="card"><div class="card-name">إسبريسو</div><div class="card-price"><span><b>25</b></span></div></div>
-          <div class="card"><div class="card-name">إسبريسو بالحليب</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">ريستريتو</div><div class="card-price"><span><b>25</b></span></div></div>
-          <div class="card"><div class="card-name">كورتادو</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">لاتيه</div><div class="card-price"><span><b>35</b></span></div></div>
-          <div class="card"><div class="card-name">لاتيه بنكهات</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">سبانش لاتيه</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">كراميل ميكاتو</div><div class="card-price"><span><b>35</b></span></div></div>
-          <div class="card"><div class="card-name">كابتشينو R</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">كابتشينو L</div><div class="card-price"><span><b>35</b></span></div></div>
-          <div class="card"><div class="card-name">كابتشينو بنكهات</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">موكا</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">وايت موكا</div><div class="card-price"><span><b>45</b></span></div></div>
-          <div class="card"><div class="card-name">فلات وايت</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">أمريكانو</div><div class="card-price"><span><b>25</b></span></div></div>
-          <div class="card"><div class="card-name">بندق كوفي</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">بستاشيو كوفي</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">لوتس كوفي</div><div class="card-price"><span><b>40</b></span></div></div>
-          <div class="card"><div class="card-name">ميكاتو</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">إسبريسو نوتيلا</div><div class="card-price"><span><b>35</b></span></div></div>
-          <div class="card"><div class="card-name">إسبريسو كريم</div><div class="card-price"><span><b>30</b></span></div></div>
-          <div class="card"><div class="card-name">إسبريسو آيس كريم</div><div class="card-price"><span><b>35</b></span></div></div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="إسبريسو" />
+            <div class="card-body">
+              <div class="card-name">إسبريسو</div>
+              <div class="card-price"><span><b>25</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="إسبريسو بالحليب" />
+            <div class="card-body">
+              <div class="card-name">إسبريسو بالحليب</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="ريستريتو" />
+            <div class="card-body">
+              <div class="card-name">ريستريتو</div>
+              <div class="card-price"><span><b>25</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="كورتادو" />
+            <div class="card-body">
+              <div class="card-name">كورتادو</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1534687941688-6511c59c6e1a?w=400&q=80" alt="لاتيه" />
+            <div class="card-body">
+              <div class="card-name">لاتيه</div>
+              <div class="card-price"><span><b>35</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1534687941688-6511c59c6e1a?w=400&q=80" alt="لاتيه بنكهات" />
+            <div class="card-body">
+              <div class="card-name">لاتيه بنكهات</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1534687941688-6511c59c6e1a?w=400&q=80" alt="سبانش لاتيه" />
+            <div class="card-body">
+              <div class="card-name">سبانش لاتيه</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1534687941688-6511c59c6e1a?w=400&q=80" alt="كراميل ميكاتو" />
+            <div class="card-body">
+              <div class="card-name">كراميل ميكاتو</div>
+              <div class="card-price"><span><b>35</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=80" alt="كابتشينو R" />
+            <div class="card-body">
+              <div class="card-name">كابتشينو R</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=80" alt="كابتشينو L" />
+            <div class="card-body">
+              <div class="card-name">كابتشينو L</div>
+              <div class="card-price"><span><b>35</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=80" alt="كابتشينو بنكهات" />
+            <div class="card-body">
+              <div class="card-name">كابتشينو بنكهات</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="موكا" />
+            <div class="card-body">
+              <div class="card-name">موكا</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="وايت موكا" />
+            <div class="card-body">
+              <div class="card-name">وايت موكا</div>
+              <div class="card-price"><span><b>45</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="فلات وايت" />
+            <div class="card-body">
+              <div class="card-name">فلات وايت</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="أمريكانو" />
+            <div class="card-body">
+              <div class="card-name">أمريكانو</div>
+              <div class="card-price"><span><b>25</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="بندق كوفي" />
+            <div class="card-body">
+              <div class="card-name">بندق كوفي</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="بستاشيو كوفي" />
+            <div class="card-body">
+              <div class="card-name">بستاشيو كوفي</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="لوتس كوفي" />
+            <div class="card-body">
+              <div class="card-name">لوتس كوفي</div>
+              <div class="card-price"><span><b>40</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="ميكاتو" />
+            <div class="card-body">
+              <div class="card-name">ميكاتو</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="إسبريسو نوتيلا" />
+            <div class="card-body">
+              <div class="card-name">إسبريسو نوتيلا</div>
+              <div class="card-price"><span><b>35</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="إسبريسو كريم" />
+            <div class="card-body">
+              <div class="card-name">إسبريسو كريم</div>
+              <div class="card-price"><span><b>30</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="إسبريسو آيس كريم" />
+            <div class="card-body">
+              <div class="card-name">إسبريسو آيس كريم</div>
+              <div class="card-price"><span><b>35</b></span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ===== 6. مشروبات باردة ===== -->
+    <!-- ============================================================ -->
+    <!-- 2. مشروبات باردة -->
+    <!-- ============================================================ -->
     <div class="category">
       <div class="category-title"><span class="icon">🧊</span> مشروبات باردة</div>
 
-      <div style="margin-bottom:1.5rem;">
-        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">فرايبيه</div>
+      <!-- فرايبيه -->
+      <div class="sub-section">
+        <div class="sub-label">فرايبيه</div>
         <div class="grid">
-          <div class="card"><div class="card-name">فرايبيه</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">فرايبيه فانيليا</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">فرايبيه شوكولاتة</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">فرايبيه كراميل</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">فرايبيه قهوة</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80" alt="فرايبيه" />
+            <div class="card-body">
+              <div class="card-name">فرايبيه</div>
+              <div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80" alt="فرايبيه فانيليا" />
+            <div class="card-body">
+              <div class="card-name">فرايبيه فانيليا</div>
+              <div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80" alt="فرايبيه شوكولاتة" />
+            <div class="card-body">
+              <div class="card-name">فرايبيه شوكولاتة</div>
+              <div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80" alt="فرايبيه كراميل" />
+            <div class="card-body">
+              <div class="card-name">فرايبيه كراميل</div>
+              <div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80" alt="فرايبيه قهوة" />
+            <div class="card-body">
+              <div class="card-name">فرايبيه قهوة</div>
+              <div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div style="margin-bottom:1.5rem;">
-        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">ميلك شيك</div>
+      <!-- ميلك شيك -->
+      <div class="sub-section">
+        <div class="sub-label">ميلك شيك</div>
         <div class="grid">
-          <div class="card"><div class="card-name">ميلك شيك فانيليا</div><div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div></div>
-          <div class="card"><div class="card-name">ميلك شيك شوكولاتة</div><div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div></div>
-          <div class="card"><div class="card-name">ميلك شيك كراميل</div><div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div></div>
-          <div class="card"><div class="card-name">ميلك شيك أوريو</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
-          <div class="card"><div class="card-name">ميلك شيك سنيكرز</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
-          <div class="card"><div class="card-name">ميلك شيك كيت كات</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
-          <div class="card"><div class="card-name">ميلك شيك بستاشيو</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
-          <div class="card"><div class="card-name">ميلك شيك لوتس</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
-        </div>
-      </div>
-
-      <div>
-        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">آيس كوفي و autres</div>
-        <div class="grid">
-          <div class="card"><div class="card-name">آيس لاتيه</div><div class="card-price"><span>M <b>60</b></span><span>L <b>70</b></span><span>XL <b>80</b></span></div></div>
-          <div class="card"><div class="card-name">آيس موكا</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">آيس كراميل ميكاتو</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">آيس سبانش لاتيه</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">آيس وايت موكا</div><div class="card-price"><span>M <b>75</b></span><span>L <b>85</b></span><span>XL <b>95</b></span></div></div>
-          <div class="card"><div class="card-name">آيس أمريكانو</div><div class="card-price"><span>M <b>50</b></span><span>L <b>55</b></span><span>XL <b>65</b></span></div></div>
-          <div class="card"><div class="card-name">آيس أمريكانو حليب</div><div class="card-price"><span>M <b>55</b></span><span>L <b>60</b></span><span>XL <b>70</b></span></div></div>
-          <div class="card"><div class="card-name">آيس لوتس</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">آيس بندق</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">آيس بستاشيو</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
-          <div class="card"><div class="card-name">آيس فريبه</div><div class="card-price"><span><b>50</b></span></div></div>
-          <div class="card"><div class="card-name">آيس كوفي</div><div class="card-price"><span><b>55</b></span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== FOOTER ===== -->
-    <footer style="text-align:center;padding:2rem 0 0;border-top:1px solid rgba(200,121,42,0.15);margin-top:3rem;color:#5a4030;font-size:0.8rem;">
-      <p>جميع الحقوق محفوظة © ٢٠٢٥</p>
-    </footer>
-
-  </div>
-
-</body>
-</html>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" alt="ميلك شيك فانيليا" />
+            <div class="card-body">
+              <div class="card-name">ميلك شيك فانيليا</div>
+              <div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" alt="ميلك شيك شوكولاتة" />
+            <div class="card-body">
+              <div class="card-name">ميلك شيك شوكولاتة</div>
+              <div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" alt="ميلك شيك كراميل" />
+            <div class="card-body">
+              <div class="card-name">ميلك شيك كراميل</div>
+              <div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" alt="ميلك شيك أوريو" />
+            <div class="card-body">
+              <div class="card-name">ميلك شيك أوريو</div>
+              <div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" alt="ميلك شيك سنيكرز" />
+            <div class="card-body">
+              <div class="card-name">ميلك شيك سنيكرز</div>
+              <div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" alt="ميلك شيك كيت كات" />
+            <div class="card-body">
+              <div class="card-name">ميلك شيك كيت كات</div>
+              <div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" alt="ميلك شيك بستاشيو" />
