@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>منيو المطعم</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #0f0a05;
+      color: #f5ede0;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #c8792a;
+      letter-spacing: 0.05em;
+    }
+
+    .header p {
+      color: #a08060;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 1.5rem auto 2rem;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to left, #c8792a, transparent);
+    }
+
+    .divider-line.right {
+      background: linear-gradient(to right, #c8792a, transparent);
+    }
+
+    .divider-icon {
+      color: #c8792a;
+      font-size: 1.4rem;
+    }
+
+    /* ===== CATEGORY ===== */
+    .category {
+      margin-bottom: 3rem;
+    }
+
+    .category-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #c8792a;
+      border-bottom: 1px solid rgba(200, 121, 42, 0.25);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .category-title .icon {
+      font-size: 1.8rem;
+    }
+
+    /* ===== GRID ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(200, 121, 42, 0.12);
+      border-radius: 14px;
+      padding: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(200, 121, 42, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .card-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f5ede0;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-price {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: #a08060;
+    }
+
+    .card-price span {
+      background: rgba(200, 121, 42, 0.08);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    .card-price b {
+      color: #c8792a;
+      font-weight: 700;
+    }
+
+    .card-desc {
+      font-size: 0.75rem;
+      color: #7a6050;
+      margin-top: 0.3rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 500px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .category-title {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+      <h1>🍽️ منيو المطعم</h1>
+      <p>أشهى الأطباق والمشروبات</p>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-icon">✦</div>
+        <div class="divider-line right"></div>
+      </div>
+    </div>
+
+    <!-- ===== 1. بيتزا ===== -->
+    <div class="category">
+      <div class="category-title"><span class="icon">🍕</span> بيتزا</div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-name">بيبروني</div>
+          <div class="card-price"><span>S <b>30</b></span><span>M <b>50</b></span></div>
+        </div>
+        <div class="card">
+          <div class="card-name">تركي مدخن</div>
+          <div class="card-price"><span>S <b>35</b></span><span>M <b>55</b></span></div>
+        </div>
+        <div class="card">
+          <div class="card-name">ثلاثي الجبن</div>
+          <div class="card-price"><span>S <b>35</b></span><span>M <b>55</b></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 2. حلويات وكيك ===== -->
+    <div class="category">
+      <div class="category-title"><span class="icon">🧁</span> حلويات وكيك</div>
+      <div class="grid">
+        <div class="card"><div class="card-name">مافن كيت كات</div><div class="card-price"><span><b>80</b></span></div></div>
+        <div class="card"><div class="card-name">تراميسو</div><div class="card-price"><span><b>80</b></span></div></div>
+        <div class="card"><div class="card-name">هوني كيك</div><div class="card-price"><span><b>80</b></span></div></div>
+        <div class="card"><div class="card-name">أنجليش كيك</div><div class="card-price"><span><b>45</b></span></div></div>
+        <div class="card"><div class="card-name">كيك بندق</div><div class="card-price"><span><b>70</b></span></div></div>
+        <div class="card"><div class="card-name">ليزي كيك</div><div class="card-price"><span><b>80</b></span></div></div>
+      </div>
+    </div>
+
+    <!-- ===== 3. مخبوزات ===== -->
+    <div class="category">
+      <div class="category-title"><span class="icon">🥐</span> مخبوزات</div>
+      <div class="grid">
+        <div class="card"><div class="card-name">كرواسون جبنة</div><div class="card-price"><span>L <b>50</b></span></div></div>
+        <div class="card"><div class="card-name">كرواسون سادة</div><div class="card-price"><span><b>45</b></span></div></div>
+        <div class="card"><div class="card-name">باتيه جبنة بيضاء</div><div class="card-price"><span>L <b>37</b></span></div></div>
+        <div class="card"><div class="card-name">باتيه زيتون وزعتر</div><div class="card-price"><span>L <b>40</b></span></div></div>
+      </div>
+    </div>
+
+    <!-- ===== 4. تشيز كيك وكيك ===== -->
+    <div class="category">
+      <div class="category-title"><span class="icon">🍰</span> تشيز كيك وكيك</div>
+      <div class="grid">
+        <div class="card"><div class="card-name">تشيز كيك سادة</div><div class="card-price"><span><b>70</b></span></div></div>
+        <div class="card"><div class="card-name">تشيز كيك بلو بيري</div><div class="card-price"><span><b>90</b></span></div></div>
+        <div class="card"><div class="card-name">تشيز كيك أوتس</div><div class="card-price"><span><b>90</b></span></div></div>
+        <div class="card"><div class="card-name">ريد فيلفيت كيك</div><div class="card-price"><span><b>85</b></span></div></div>
+        <div class="card"><div class="card-name">كاروت كيك</div><div class="card-price"><span><b>90</b></span></div></div>
+        <div class="card"><div class="card-name">مولتن كيك</div><div class="card-price"><span><b>130</b></span></div></div>
+        <div class="card"><div class="card-name">أوريو كيك</div><div class="card-price"><span><b>85</b></span></div></div>
+        <div class="card"><div class="card-name">تشوكليت فادج</div><div class="card-price"><span><b>90</b></span></div></div>
+        <div class="card"><div class="card-name">براونيز تشوكليت</div><div class="card-price"><span><b>80</b></span></div></div>
+        <div class="card"><div class="card-name">براونيز إكسترا</div><div class="card-price"><span><b>115</b></span></div></div>
+        <div class="card"><div class="card-name">مافن تشوكليت ميني</div><div class="card-price"><span><b>12</b></span></div></div>
+        <div class="card"><div class="card-name">مافن فانيليا ميني</div><div class="card-price"><span><b>12</b></span></div></div>
+        <div class="card"><div class="card-name">كوكيز فانيليا</div><div class="card-price"><span><b>55</b></span></div></div>
+        <div class="card"><div class="card-name">كوكيز شوفان</div><div class="card-price"><span><b>55</b></span></div></div>
+        <div class="card"><div class="card-name">كوكيز تشوكليت</div><div class="card-price"><span><b>55</b></span></div></div>
+        <div class="card"><div class="card-name">سينامون رول ميني</div><div class="card-price"><span><b>12</b></span></div></div>
+        <div class="card"><div class="card-name">سينامون رول كبيرة</div><div class="card-price"><span><b>55</b></span></div></div>
+        <div class="card"><div class="card-name">مافن بندق</div><div class="card-price"><span><b>65</b></span></div></div>
+        <div class="card"><div class="card-name">تشيز بندق</div><div class="card-price"><span><b>70</b></span></div></div>
+        <div class="card"><div class="card-name">براونيز كوكيز</div><div class="card-price"><span><b>60</b></span></div></div>
+      </div>
+    </div>
+
+    <!-- ===== 5. مشروبات ساخنة ===== -->
+    <div class="category">
+      <div class="category-title"><span class="icon">☕</span> مشروبات ساخنة</div>
+
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">بدون قهوة</div>
+        <div class="grid">
+          <div class="card"><div class="card-name">بيبي شوكولاتة</div><div class="card-price"><span><b>65</b></span></div></div>
+          <div class="card"><div class="card-name">إيطاليان شوكولاتة</div><div class="card-price"><span><b>65</b></span></div></div>
+          <div class="card"><div class="card-name">هوت سيدر</div><div class="card-price"><span><b>45</b></span></div></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">فرنساوي</div>
+        <div class="grid">
+          <div class="card"><div class="card-name">فرنساوي</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">فرنساوي (بندق)</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">فرنساوي (لوز)</div><div class="card-price"><span><b>45</b></span></div></div>
+          <div class="card"><div class="card-name">فرنساوي شوكولاتة</div><div class="card-price"><span><b>45</b></span></div></div>
+          <div class="card"><div class="card-name">فرنساوي كراميل</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">فرنساوي ميكس بندق</div><div class="card-price"><span><b>45</b></span></div></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">شاي وقهوة</div>
+        <div class="grid">
+          <div class="card"><div class="card-name">شاي أسود</div><div class="card-price"><span><b>20</b></span></div></div>
+          <div class="card"><div class="card-name">شاي أخضر</div><div class="card-price"><span><b>20</b></span></div></div>
+          <div class="card"><div class="card-name">شاي بالحليب</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">شاي بنكهات</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">تركي S</div><div class="card-price"><span><b>25</b></span></div></div>
+          <div class="card"><div class="card-name">تركي D</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">تركي سبشيال S</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">تركي سبشيال D</div><div class="card-price"><span><b>35</b></span></div></div>
+          <div class="card"><div class="card-name">قهوة عربية</div><div class="card-price"><span><b>20</b></span></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">إسبريسو ومشتقاته</div>
+        <div class="grid">
+          <div class="card"><div class="card-name">إسبريسو</div><div class="card-price"><span><b>25</b></span></div></div>
+          <div class="card"><div class="card-name">إسبريسو بالحليب</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">ريستريتو</div><div class="card-price"><span><b>25</b></span></div></div>
+          <div class="card"><div class="card-name">كورتادو</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">لاتيه</div><div class="card-price"><span><b>35</b></span></div></div>
+          <div class="card"><div class="card-name">لاتيه بنكهات</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">سبانش لاتيه</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">كراميل ميكاتو</div><div class="card-price"><span><b>35</b></span></div></div>
+          <div class="card"><div class="card-name">كابتشينو R</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">كابتشينو L</div><div class="card-price"><span><b>35</b></span></div></div>
+          <div class="card"><div class="card-name">كابتشينو بنكهات</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">موكا</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">وايت موكا</div><div class="card-price"><span><b>45</b></span></div></div>
+          <div class="card"><div class="card-name">فلات وايت</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">أمريكانو</div><div class="card-price"><span><b>25</b></span></div></div>
+          <div class="card"><div class="card-name">بندق كوفي</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">بستاشيو كوفي</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">لوتس كوفي</div><div class="card-price"><span><b>40</b></span></div></div>
+          <div class="card"><div class="card-name">ميكاتو</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">إسبريسو نوتيلا</div><div class="card-price"><span><b>35</b></span></div></div>
+          <div class="card"><div class="card-name">إسبريسو كريم</div><div class="card-price"><span><b>30</b></span></div></div>
+          <div class="card"><div class="card-name">إسبريسو آيس كريم</div><div class="card-price"><span><b>35</b></span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 6. مشروبات باردة ===== -->
+    <div class="category">
+      <div class="category-title"><span class="icon">🧊</span> مشروبات باردة</div>
+
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">فرايبيه</div>
+        <div class="grid">
+          <div class="card"><div class="card-name">فرايبيه</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">فرايبيه فانيليا</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">فرايبيه شوكولاتة</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">فرايبيه كراميل</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">فرايبيه قهوة</div><div class="card-price"><span>M <b>65</b></span><span>L <b>75</b></span><span>XL <b>90</b></span></div></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">ميلك شيك</div>
+        <div class="grid">
+          <div class="card"><div class="card-name">ميلك شيك فانيليا</div><div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div></div>
+          <div class="card"><div class="card-name">ميلك شيك شوكولاتة</div><div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div></div>
+          <div class="card"><div class="card-name">ميلك شيك كراميل</div><div class="card-price"><span>M <b>70</b></span><span>L <b>90</b></span><span>XL <b>100</b></span></div></div>
+          <div class="card"><div class="card-name">ميلك شيك أوريو</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
+          <div class="card"><div class="card-name">ميلك شيك سنيكرز</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
+          <div class="card"><div class="card-name">ميلك شيك كيت كات</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
+          <div class="card"><div class="card-name">ميلك شيك بستاشيو</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
+          <div class="card"><div class="card-name">ميلك شيك لوتس</div><div class="card-price"><span>M <b>80</b></span><span>L <b>100</b></span><span>XL <b>115</b></span></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:1rem;font-weight:700;color:#c8792a;margin-bottom:0.5rem;">آيس كوفي و autres</div>
+        <div class="grid">
+          <div class="card"><div class="card-name">آيس لاتيه</div><div class="card-price"><span>M <b>60</b></span><span>L <b>70</b></span><span>XL <b>80</b></span></div></div>
+          <div class="card"><div class="card-name">آيس موكا</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">آيس كراميل ميكاتو</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">آيس سبانش لاتيه</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">آيس وايت موكا</div><div class="card-price"><span>M <b>75</b></span><span>L <b>85</b></span><span>XL <b>95</b></span></div></div>
+          <div class="card"><div class="card-name">آيس أمريكانو</div><div class="card-price"><span>M <b>50</b></span><span>L <b>55</b></span><span>XL <b>65</b></span></div></div>
+          <div class="card"><div class="card-name">آيس أمريكانو حليب</div><div class="card-price"><span>M <b>55</b></span><span>L <b>60</b></span><span>XL <b>70</b></span></div></div>
+          <div class="card"><div class="card-name">آيس لوتس</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">آيس بندق</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">آيس بستاشيو</div><div class="card-price"><span>M <b>70</b></span><span>L <b>80</b></span><span>XL <b>90</b></span></div></div>
+          <div class="card"><div class="card-name">آيس فريبه</div><div class="card-price"><span><b>50</b></span></div></div>
+          <div class="card"><div class="card-name">آيس كوفي</div><div class="card-price"><span><b>55</b></span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer style="text-align:center;padding:2rem 0 0;border-top:1px solid rgba(200,121,42,0.15);margin-top:3rem;color:#5a4030;font-size:0.8rem;">
+      <p>جميع الحقوق محفوظة © ٢٠٢٥</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
